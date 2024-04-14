@@ -1,0 +1,14 @@
+.tabLabel {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+    .tabLabel {
+        font-size: 1.1rem;
+    }
+}
+@media (max-width: 768px) {
+    .tabLabel {
+        font-size: 1rem;
+    }
+}

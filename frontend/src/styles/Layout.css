@@ -1,0 +1,10 @@
+.logo-text {
+    /*font-family: 'TwojaCzcionka', "Impact"; !* Zmień 'TwojaCzcionka' na nazwę czcionki, którą chcesz użyć *!*/
+    color: black; /* Ustawienie koloru tekstu */
+    /*text-shadow:*/
+    /*        -1px -1px 0 #000,*/
+    /*        1px -1px 0 #000,*/
+    /*        -1px  1px 0 #000,*/
+    /*        1px  1px 0 #000; !* Obramówka tekstu *!*/
+    font-size: 2.5rem; /* Wielkość czcionki */
+}
