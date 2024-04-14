@@ -9,7 +9,11 @@ import {NavLink, Text} from "@mantine/core";
 import {useLocation, useNavigate} from "react-router-dom";
 import { modals } from '@mantine/modals';
 
-export const AppNavbar = () => {
+interface AppNavbarProps {
+    toggle: () => void;
+}
+
+export const AppNavbar = ({ toggle  }: AppNavbarProps) => {
     const navigate = useNavigate();
     const location = useLocation();
     const isLoggedIn = !!sessionStorage.getItem('authToken');
@@ -27,11 +31,18 @@ export const AppNavbar = () => {
         labels: { confirm: 'Confirm', cancel: 'Cancel' },
         onCancel: () => {
             console.log("Logout cancelled")
+            toggle();
         },
         onConfirm: () => {
             handleLogout();
+            toggle();
         }
     });
+
+    const navlinkOnClickHandler = (url: string) => {
+        toggle();
+        navigate(url);
+    }
 
     return (
         <div>
@@ -40,13 +51,13 @@ export const AppNavbar = () => {
                 {!isLoggedIn && (
                     <>
                         <NavLink
-                            onClick={() => navigate('/login')}
+                            onClick={() => navlinkOnClickHandler('/login')}
                             label="Logowanie"
                             leftSection={<IconLogin2 size="2rem" stroke={1.5}/>}
                             active={location.pathname === '/moto/login'}
                         />
                         <NavLink
-                            onClick={() => navigate('/register')}
+                            onClick={() => navlinkOnClickHandler('/register')}
                             label="Rejestracja"
                             leftSection={<IconKey size="2rem" stroke={1.5}/>}
                             active={location.pathname === '/register'}
@@ -67,13 +78,13 @@ export const AppNavbar = () => {
                 )}
 
                 <NavLink
-                    onClick={() => navigate('/search')}
+                    onClick={() => navlinkOnClickHandler('/search')}
                     label="Search listings"
                     leftSection={<IconSearch size="2rem" stroke={1.5}/>}
                     active={location.pathname === '/search'}
                 />
                 <NavLink
-                    onClick={() => navigate('/addnew')}
+                    onClick={() => navlinkOnClickHandler('/addnew')}
                     label="Add listing"
                     leftSection={<IconPlus size="2rem" stroke={1.5}/>}
                     active={location.pathname === '/addnew'}
@@ -81,7 +92,7 @@ export const AppNavbar = () => {
             </div>
             <div style={{position: 'absolute', bottom: '0', width: '100%'}}>
                 <NavLink
-                    onClick={() => navigate('/profile')}
+                    onClick={() => navlinkOnClickHandler('/profile')}
                     label="Account"
                     leftSection={<IconUserCircle size="2rem" stroke={1.5}/>}
                     active={location.pathname === '/profile'}

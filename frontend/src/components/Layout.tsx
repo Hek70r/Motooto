@@ -1,6 +1,6 @@
 import {Outlet} from "react-router-dom";
 import {AppNavbar} from "./AppNavbar";
-import {AppShell, Burger, Group, Image, Title} from "@mantine/core";
+import {AppShell, Burger, Flex, Group, Image, Title} from "@mantine/core";
 import React from "react";
 import {useDisclosure} from "@mantine/hooks";
 import '../styles/Layout.css';
@@ -17,16 +17,16 @@ export const Layout = () => {
             padding="md"
         >
             <AppShell.Header>
-                <Group h="100%" px="md">
+                <Flex align="center" h="100%" px="md" gap="lg">
                     <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="sm"/>
-                    <Group>
+                    <Flex direction="row">
                         <Image src="../motootologo.png" alt="Logo MOTOOTO" width={45} height={45}></Image>
                         <Title>MOTOOTO</Title>
-                    </Group>
-                </Group>
+                    </Flex>
+                </Flex>
             </AppShell.Header>
             <AppShell.Navbar p="md">
-                <AppNavbar/>
+                <AppNavbar toggle={toggle}/>
             </AppShell.Navbar>
             <AppShell.Main><Outlet/></AppShell.Main>
         </AppShell>
