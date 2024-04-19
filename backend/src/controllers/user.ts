@@ -10,6 +10,7 @@ import Listing from "../models/Listing";
 import crypto from "crypto"
 import emailjs from "@emailjs/browser";
 import nodemailer from "nodemailer";
+import {FRONTEND_URL} from "../constans/constans";
 
 const userController = {
     register: async (req: Request, res: Response) => {
@@ -262,7 +263,8 @@ const userController = {
                     }
                 });
 
-                const resetUrl = `http://localhost:3000/reset-password/${token}`
+
+                const resetUrl = `${FRONTEND_URL}/reset-password/${token}`;
                 const mailOptions = {
                     from: 'motootoweb@example.com',
                     to: user.email,
