@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import {Tabs, rem, Button, Stack, Text, Center, Loader} from '@mantine/core';
-import { IconPhoto, IconMessageCircle, IconSettings } from '@tabler/icons-react';
+import {Tabs, rem} from '@mantine/core';
+import { IconHeart, IconUser, IconSettings } from '@tabler/icons-react';
 import { getUserProfile, UserProfile,} from "../services/api/user";
 import Settings from "../components/ProfilePage/Settings";
 import PersonalListings from "../components/ProfilePage/PersonalListings";
@@ -51,13 +51,13 @@ export const ProfilePage = () => {
         <>
             <Tabs defaultValue="settings" classNames={{ tabLabel: classes.tabLabel }}>
                 <Tabs.List>
-                    <Tabs.Tab value="settings" leftSection={<IconPhoto style={iconStyle} />}>
+                    <Tabs.Tab value="settings" leftSection={<IconSettings style={iconStyle} />}>
                         Account setting
                     </Tabs.Tab>
-                    <Tabs.Tab value="personalListings" leftSection={<IconMessageCircle style={iconStyle} />}>
+                    <Tabs.Tab value="personalListings" leftSection={<IconUser style={iconStyle} />}>
                         Your listings
                     </Tabs.Tab>
-                    <Tabs.Tab value="favouriteListings" leftSection={<IconSettings style={iconStyle} />}>
+                    <Tabs.Tab value="favouriteListings" leftSection={<IconHeart style={iconStyle} />}>
                         Favourite listings
                     </Tabs.Tab>
                 </Tabs.List>

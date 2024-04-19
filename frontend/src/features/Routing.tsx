@@ -10,12 +10,17 @@ import {RegisterPage} from "../pages/RegisterPage";
 import {CarDetailsPage} from "../pages/CarDetailsPage";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
 import SendResetPasswordPage from "../pages/SendResetPasswordPage";
+import HomePage from "../pages/HomePage";
 
 const routes: RouteObject[] = [
     {
         path: '/',
         element: <Layout/>,
         children: [
+            {
+                path: '/',
+                element: <HomePage />
+            },
             {
                 path: '/search',
                 element: <CarListPage/>

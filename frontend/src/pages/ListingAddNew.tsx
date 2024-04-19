@@ -138,8 +138,6 @@ export const ListingAddNew = () => {
                         error={formik.touched.description && formik.errors.description ? formik.errors.description : undefined}
                         required
                     />
-
-                    <Text pt="xs" fw={500} c="red.9">Uploading files currently disabled due to server problems, sorry for inconvenience</Text>
                     <FileInput
                         label="Images of the vehicle"
                         placeholder="Choose files"
